@@ -6,5 +6,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pdbpp>=0.10.3",
+    "pytest-xdist>=3.6.1",
     "pytest>=8.3.3",
 ]
+
+[tool.uv.sources]
+pytest-xdist = { path = "../pytest-xdist" }
