@@ -14,5 +14,4 @@ class TestFirst:
 
 
 def test_second(pytestconfig):
-    print(pytestconfig.getoption("shard_num"))
     pass

@@ -6,7 +6,10 @@ def pytest_collection_modifyitems(session, config, items):
 
     shard_num = session.config.getoption("shard_num")
     shard_index = session.config.getoption("shard_index")
-    print(items)
+
+    items.sort(key=lambda i: (str(i.fspath), i.name))
+    if not shard_index < shard_num:
+        raise Exception(f"shard_index {shard_index} must be greater than shard_num {shard_num}")
     for index, item in enumerate(items):
         if shard_num == 1 or index % shard_num != shard_index:
             continue
